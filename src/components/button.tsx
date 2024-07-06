@@ -21,7 +21,7 @@ const flag = true;
 if (flag) {
   arr = [];
 }
-console.log("arr1:", arr);
+// console.log("arr1:", arr);
 
 export default function Button() {
   return (
