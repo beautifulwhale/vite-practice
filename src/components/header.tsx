@@ -24,6 +24,7 @@ export default function Header() {
         id="scene"
         alt="Scenery"
       />
+      <img style={{ width: "300px", height: "300px" }} src={new URL('./assets/landing-config.4f9d5425.png', import.meta.env.VITE_IMAGE_BASE_URL).href} alt="" />
     </>
   );
 }
