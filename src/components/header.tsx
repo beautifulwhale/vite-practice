@@ -1,13 +1,29 @@
 import "./header.scss";
 import style from "./head.module.scss";
 import Button from "./button";
+import Elephant from "@assets/image/elephant.svg?react";
+import { useEffect } from "react";
 
 export default function Header() {
+  useEffect(() => {
+    // 使用 new URL 动态加载图片
+    const imgUrl = new URL("@assets/image/scenery.jpg", import.meta.url)
+      .pathname;
+    const el = document.getElementById("scene") as HTMLImageElement;
+    el.src = imgUrl;
+  }, []);
+
   return (
     <>
       <p className="header">我是header~</p>
       <p className={style.header}>我是module header!</p>
       <Button></Button>
+      <Elephant style={{ width: "300px", height: "300px" }} />
+      <img
+        style={{ width: "300px", height: "300px" }}
+        id="scene"
+        alt="Scenery"
+      />
     </>
   );
 }
