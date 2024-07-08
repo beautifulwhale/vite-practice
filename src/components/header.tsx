@@ -4,6 +4,7 @@ import Button from "./button";
 import Elephant from "@assets/image/elephant.svg?react";
 import { useEffect } from "react";
 import girl from '@assets/image/test.webp';
+import SvgSprites from "./svgSprites";
 
 export default function Header() {
   useEffect(() => {
@@ -27,6 +28,7 @@ export default function Header() {
       />
       <img style={{ width: "300px", height: "300px" }} src={new URL('./assets/landing-config.4f9d5425.png', import.meta.env.VITE_IMAGE_BASE_URL).href} alt="" />
       <img style={{ width: "300px", height: "400px" }} src={girl} alt="" />
+      <SvgSprites></SvgSprites>
     </>
   );
 }

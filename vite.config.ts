@@ -6,6 +6,7 @@ import postcssPresetEnv from "postcss-preset-env";
 // import viteEslint from "vite-plugin-eslint";
 import svgr from "vite-plugin-svgr";
 import viteImagemin from 'vite-plugin-imagemin';
+import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
 
 const variablePath = normalizePath(path.resolve("./src/assets/variable.scss"));
 
@@ -54,8 +55,10 @@ export default defineConfig({
       mozjpeg: {
         quality: 70
       }
+    }),
+    createSvgIconsPlugin({
+      iconDirs: [path.resolve(__dirname, 'src/assets/icons')]
     })
-    
   ],
   css: {
     preprocessorOptions: {
