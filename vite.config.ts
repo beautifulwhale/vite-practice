@@ -5,6 +5,7 @@ import postcssPresetEnv from "postcss-preset-env";
 // import autoprefixer from 'autoprefixer'
 // import viteEslint from "vite-plugin-eslint";
 import svgr from "vite-plugin-svgr";
+import viteImagemin from 'vite-plugin-imagemin';
 
 const variablePath = normalizePath(path.resolve("./src/assets/variable.scss"));
 
@@ -28,7 +29,33 @@ export default defineConfig({
     //   include: ["src/**/*.ts", "src/**/*.tsx", "src/**/*.js", "src/**/*.jsx"],
     //   exclude: ["node_modules"]
     // }),
-    svgr()
+    svgr(),
+    viteImagemin({
+      optipng: {
+        optimizationLevel: 7
+      },
+      pngquant: {
+        quality: [0.3, 0.8]
+      },
+      svgo: {
+        plugins: [
+          {
+            name: 'removeViewBox'
+          },
+          {
+            name: 'removeEmptyAttrs',
+            active: false
+          }
+        ]
+      },
+      gifsicle: {
+        optimizationLevel: 7
+      },
+      mozjpeg: {
+        quality: 70
+      }
+    })
+    
   ],
   css: {
     preprocessorOptions: {
@@ -50,5 +77,8 @@ export default defineConfig({
     }
   },
   // 加载其他格式的静态资源
-  assetsInclude: ['.gltf']
+  assetsInclude: ['.gltf'],
+  build: {
+    // assetsInlineLimit: 350 * 1024
+  }
 });
