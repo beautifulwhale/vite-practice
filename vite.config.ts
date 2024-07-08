@@ -33,7 +33,7 @@ export default defineConfig({
     svgr(),
     viteImagemin({
       optipng: {
-        optimizationLevel: 7
+        optimizationLevel: 5
       },
       pngquant: {
         quality: [0.3, 0.8]
@@ -83,5 +83,16 @@ export default defineConfig({
   assetsInclude: ['.gltf'],
   build: {
     // assetsInlineLimit: 350 * 1024
+    rollupOptions: {
+      output: {
+        assetFileNames: (assetInfo) => {
+          // 雪碧图svg不携带hash，否则不能正常展示
+          if (assetInfo.name && assetInfo.name.endsWith('.svg')) {
+            return 'assets/icons/[name][extname]';
+          }
+          return 'assets/[name]-[hash][extname]';
+        },
+      },
+    }
   }
 });
