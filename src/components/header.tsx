@@ -5,6 +5,7 @@ import Elephant from "@assets/image/elephant.svg?react";
 import { useEffect } from "react";
 import girl from "@assets/image/test.webp";
 import SvgSprites from "./svgSprites";
+import { debounce } from "lodash-es";
 
 export default function Header() {
   useEffect(() => {
@@ -14,6 +15,12 @@ export default function Header() {
     const el = document.getElementById("scene") as HTMLImageElement;
     el.src = imgUrl;
   }, []);
+
+  console.log(
+    debounce(() => {
+      console.log("123");
+    })
+  );
 
   return (
     <>

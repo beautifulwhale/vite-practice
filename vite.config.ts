@@ -94,5 +94,10 @@ export default defineConfig({
         }
       }
     }
+  },
+  optimizeDeps: {
+    // exclude: ["lodash-es"]
+    // force: true, // 强制更新.vite缓存的依赖预构建产物
+    include: ["object-assign"]
   }
 });
