@@ -6,14 +6,18 @@ export interface Icon {
 
 export default function SvgIcon({
   name,
-  prefix = 'icon',
-  color = '#333',
+  prefix = "icon",
+  color = "#333",
   ...props
 }: Icon) {
   const symbolId = `#${prefix}-${name}`;
 
   return (
-    <svg {...props} aria-hidden="true" style={{ width: '100px', height: '100px' }}>
+    <svg
+      {...props}
+      aria-hidden="true"
+      style={{ width: "100px", height: "100px" }}
+    >
       <use href={symbolId} fill={color} />
     </svg>
   );

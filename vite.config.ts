@@ -5,8 +5,8 @@ import postcssPresetEnv from "postcss-preset-env";
 // import autoprefixer from 'autoprefixer'
 // import viteEslint from "vite-plugin-eslint";
 import svgr from "vite-plugin-svgr";
-import viteImagemin from 'vite-plugin-imagemin';
-import { createSvgIconsPlugin } from 'vite-plugin-svg-icons';
+import viteImagemin from "vite-plugin-imagemin";
+import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 
 const variablePath = normalizePath(path.resolve("./src/assets/variable.scss"));
 
@@ -41,10 +41,10 @@ export default defineConfig({
       svgo: {
         plugins: [
           {
-            name: 'removeViewBox'
+            name: "removeViewBox"
           },
           {
-            name: 'removeEmptyAttrs',
+            name: "removeEmptyAttrs",
             active: false
           }
         ]
@@ -57,7 +57,7 @@ export default defineConfig({
       }
     }),
     createSvgIconsPlugin({
-      iconDirs: [path.resolve(__dirname, 'src/assets/icons')]
+      iconDirs: [path.resolve(__dirname, "src/assets/icons")]
     })
   ],
   css: {
@@ -80,19 +80,19 @@ export default defineConfig({
     }
   },
   // 加载其他格式的静态资源
-  assetsInclude: ['.gltf'],
+  assetsInclude: [".gltf"],
   build: {
     // assetsInlineLimit: 350 * 1024
     rollupOptions: {
       output: {
         assetFileNames: (assetInfo) => {
           // 雪碧图svg不携带hash，否则不能正常展示
-          if (assetInfo.name && assetInfo.name.endsWith('.svg')) {
-            return 'assets/icons/[name][extname]';
+          if (assetInfo.name && assetInfo.name.endsWith(".svg")) {
+            return "assets/icons/[name][extname]";
           }
-          return 'assets/[name]-[hash][extname]';
-        },
-      },
+          return "assets/[name]-[hash][extname]";
+        }
+      }
     }
   }
 });
