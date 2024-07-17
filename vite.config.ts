@@ -98,6 +98,12 @@ export default defineConfig({
   optimizeDeps: {
     // exclude: ["lodash-es"]
     // force: true, // 强制更新.vite缓存的依赖预构建产物
-    include: ["object-assign"]
+    // 可以把需要按需加载的依赖添加进来,避免二次预构建
+    // include: ["object-assign"],
+    include: [
+      // 间接依赖的声明语法，通过`>`分开, 如`a > b`表示 a 中依赖的 b
+      "@loadable/component > hoist-non-react-statics"
+    ],
+    exclude: ["@loadable/component"] // 不常用
   }
 });
