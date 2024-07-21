@@ -6,3 +6,6 @@ interface ImportMeta {
 interface ImportMetaEnv {
   readonly VITE_IMAGE_BASE_URL: string;
 }
+declare module "virtual:*" {
+  export default any;
+}

@@ -7,6 +7,8 @@ import postcssPresetEnv from "postcss-preset-env";
 import svgr from "vite-plugin-svgr";
 import viteImagemin from "vite-plugin-imagemin";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
+import Inspect from "vite-plugin-inspect";
+import virtualModule from "./plugins/virtual-module";
 
 const variablePath = normalizePath(path.resolve("./src/assets/variable.scss"));
 
@@ -58,7 +60,9 @@ export default defineConfig({
     }),
     createSvgIconsPlugin({
       iconDirs: [path.resolve(__dirname, "src/assets/icons")]
-    })
+    }),
+    Inspect(),
+    virtualModule()
   ],
   css: {
     preprocessorOptions: {

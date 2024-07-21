@@ -1,7 +1,8 @@
 import { useEffect } from "react";
 import Header from "./components/header";
 import loadable from "@loadable/component";
-import MyTable from "./components/Table";
+// import MyTable from "./components/Table";
+import VirtualPluginTest from "./components/virtualPluginTest";
 
 // const load = async (params: string) => {
 //   const modules = import.meta.glob("./locales/*.ts");
@@ -29,7 +30,8 @@ function App() {
     <>
       <Header></Header>
       <LoadableComponent></LoadableComponent>
-      <MyTable></MyTable>
+      <VirtualPluginTest></VirtualPluginTest>
+      {/* <MyTable></MyTable> */}
     </>
   );
 }
