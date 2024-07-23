@@ -4,11 +4,12 @@ import path from "path";
 import postcssPresetEnv from "postcss-preset-env";
 // import autoprefixer from 'autoprefixer'
 // import viteEslint from "vite-plugin-eslint";
-import svgr from "vite-plugin-svgr";
+// import svgr from "vite-plugin-svgr";
 import viteImagemin from "vite-plugin-imagemin";
 import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 import Inspect from "vite-plugin-inspect";
 import virtualModule from "./plugins/virtual-module";
+import vitePluginSvgr from "./plugins/svgr";
 
 const variablePath = normalizePath(path.resolve("./src/assets/variable.scss"));
 
@@ -32,7 +33,7 @@ export default defineConfig({
     //   include: ["src/**/*.ts", "src/**/*.tsx", "src/**/*.js", "src/**/*.jsx"],
     //   exclude: ["node_modules"]
     // }),
-    svgr(),
+    // svgr(),
     viteImagemin({
       optipng: {
         optimizationLevel: 5
@@ -62,7 +63,8 @@ export default defineConfig({
       iconDirs: [path.resolve(__dirname, "src/assets/icons")]
     }),
     Inspect(),
-    virtualModule()
+    virtualModule(),
+    vitePluginSvgr()
   ],
   css: {
     preprocessorOptions: {

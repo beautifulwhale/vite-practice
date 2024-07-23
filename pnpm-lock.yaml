@@ -27,6 +27,9 @@ importers:
       '@milahu/patch-package':
         specifier: ^6.4.14
         version: 6.4.14
+      '@svgr/core':
+        specifier: ^8.1.0
+        version: 8.1.0(typescript@5.5.3)
       '@types/loadable__component':
         specifier: ^5.13.9
         version: 5.13.9

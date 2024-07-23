@@ -1,7 +1,7 @@
 import "./header.scss";
 import style from "./head.module.scss";
 import Button from "./button";
-import Elephant from "@assets/image/elephant.svg?react";
+import ElephantUrl from "@assets/image/elephant.svg";
 import { useEffect } from "react";
 import girl from "@assets/image/test.webp";
 import SvgSprites from "./svgSprites";
@@ -21,13 +21,15 @@ export default function Header() {
       console.log("123");
     })
   );
+  console.log("ElephantUrlElephantUrl", ElephantUrl);
 
   return (
     <>
       <p className="header">我是header~</p>
       <p className={style.header}>我是module header!</p>
       <Button></Button>
-      <Elephant style={{ width: "300px", height: "300px" }} />
+      {/* <Elephant /> */}
+      <img src={ElephantUrl} alt="" />
       <img
         style={{ width: "300px", height: "300px" }}
         id="scene"
