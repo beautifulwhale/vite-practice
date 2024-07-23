@@ -10,6 +10,7 @@ import { createSvgIconsPlugin } from "vite-plugin-svg-icons";
 import Inspect from "vite-plugin-inspect";
 import virtualModule from "./plugins/virtual-module";
 import vitePluginSvgr from "./plugins/svgr";
+import progressPlugin from "./plugins/progress";
 
 const variablePath = normalizePath(path.resolve("./src/assets/variable.scss"));
 
@@ -64,7 +65,8 @@ export default defineConfig({
     }),
     Inspect(),
     virtualModule(),
-    vitePluginSvgr()
+    vitePluginSvgr(),
+    progressPlugin()
   ],
   css: {
     preprocessorOptions: {
