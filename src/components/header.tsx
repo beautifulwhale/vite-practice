@@ -5,7 +5,7 @@ import ElephantUrl from "@assets/image/elephant.svg";
 import { useEffect } from "react";
 import girl from "@assets/image/test.webp";
 import SvgSprites from "./svgSprites";
-import { debounce } from "lodash-es";
+// import { debounce } from "lodash-es";
 
 export default function Header() {
   useEffect(() => {
@@ -16,12 +16,12 @@ export default function Header() {
     el.src = imgUrl;
   }, []);
 
-  console.log(
-    debounce(() => {
-      console.log("123");
-    })
-  );
-  console.log("ElephantUrlElephantUrl", ElephantUrl);
+  // console.log(
+  //   debounce(() => {
+  //     console.log("123");
+  //   })
+  // );
+  // console.log("ElephantUrlElephantUrl", ElephantUrl);
 
   return (
     <>
@@ -29,7 +29,11 @@ export default function Header() {
       <p className={style.header}>我是module header!</p>
       <Button></Button>
       {/* <Elephant /> */}
-      <img src={ElephantUrl} alt="" />
+      <img
+        style={{ width: "100px", height: "100px" }}
+        src={ElephantUrl}
+        alt=""
+      />
       <img
         style={{ width: "300px", height: "300px" }}
         id="scene"

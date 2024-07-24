@@ -30,6 +30,10 @@ export default function virtualModule(): Plugin {
       if (id === resolvedEnvModuleId) {
         return `export default ${JSON.stringify(config!.env)}`;
       }
+    },
+    // test HMR
+    configureServer(server) {
+      server.ws.send("my:greetings", { msg: "hello" });
     }
   };
 }

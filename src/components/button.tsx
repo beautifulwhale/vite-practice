@@ -14,15 +14,6 @@ const StyledButton = styled.button`
   }
 `;
 
-let arr = ["a", "b", "c"];
-console.log("arr:", arr);
-
-const flag = true;
-if (flag) {
-  arr = [];
-}
-// console.log("arr1:", arr);
-
 export default function Button() {
   return (
     <div>
