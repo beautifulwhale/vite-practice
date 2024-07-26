@@ -1,8 +1,9 @@
-import { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Header from "./components/header";
 import loadable from "@loadable/component";
 // import MyTable from "./components/Table";
 import VirtualPluginTest from "./components/virtualPluginTest";
+import AsyncComponent from "./views/asyncComponent/index";
 
 // const load = async (params: string) => {
 //   const modules = import.meta.glob("./locales/*.ts");
@@ -20,6 +21,8 @@ const LoadableComponent = loadable(() => import("./components/testLoadable"), {
 });
 
 function App() {
+  const [loadComponent, setLoadComponent] = useState(false);
+
   useEffect(() => {
     // TOFIX
     // load("zh_CN").then((data) => {
@@ -31,6 +34,14 @@ function App() {
       <Header></Header>
       <LoadableComponent></LoadableComponent>
       <VirtualPluginTest></VirtualPluginTest>
+      <button onClick={() => setLoadComponent(true)}>
+        Load Async Component
+      </button>
+      {loadComponent && (
+        <React.Suspense fallback={<div>Loading...</div>}>
+          <AsyncComponent />
+        </React.Suspense>
+      )}
       {/* <MyTable></MyTable> */}
     </>
   );
